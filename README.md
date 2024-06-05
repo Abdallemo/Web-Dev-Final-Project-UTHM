@@ -1,3 +1,5 @@
+[![Project Status: Early Development](https://img.shields.io/badge/Project%20Status-Early%20Development-orange)](https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM)
+
 # Tutorial Website
 
 Welcome to our Tutorial Website project! This project aims to create a platform where users can share tutorials on various topics, such as programming, cooking, DIY projects, and more. Users can sign up, log in, submit tutorials, and view tutorials submitted by others.
