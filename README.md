@@ -50,6 +50,9 @@ The Tutorial Website project fulfills the following requirements:
 10. - [ ] **Responsive Design:**
     - The website is responsive and provides a seamless user experience across various devices.
 
+### Early Directory Tree structure
+<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/dir_files_early_.png" >
+
 ## Getting Started
 
 To get started with the Tutorial Website project, follow these steps:
@@ -63,6 +66,20 @@ To get started with the Tutorial Website project, follow these steps:
 ## Contributing
 
 We welcome contributions to the Tutorial Website project! If you'd like to contribute, please fork the repository, make your changes, and submit a pull request. Make sure to follow our [contributing guidelines](CONTRIBUTING.md).
+
+<div align="center">
+  <h2>Our Contributors ❤️</h2>
+  <h3>Thank you for contributing to our repository</h3>
+
+<a href="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/graphs/contributors">
+<!-- it links to the "contributors" page of the Web-Dev-Final-Project-UTHM- repository. This page shows a graph of contributors and their contributions to the repository. -->
+<img src="https://contributors-img.web.app/image?repo=Abdallemo/Web-Dev-Final-Project-UTHM" />
+
+  </a>
+
+### Show some ❤️ by starring this awesome repository!
+
+</div>
 
 ## License
 
