@@ -1,10 +1,14 @@
 const express = require('express')
 const router = express.Router()
 
-router.get('/',(req, res)=>
+router.get('/new',(req, res)=>
     {
-        res.send('in Tutorial Page')
+        res.render('tutorials/new')
     })
 
+router.post('/',(req,res)=>
+    {
+        
+    })
 
 module.exports = router

@@ -1,10 +1,18 @@
 const express = require('express')
 const app = express()
+const mongoose = require('mongoose')
+
 const tutorialRouter = require('../backend/router/tutorialRouter')
 const path = require('path')
+
+//* Database Connecttion
+
+mongoose.connect('mongodb://localhost/Tutorial')
+
+//? All setters
+
 app.set('view engine','ejs')
 app.set('views', path.join(__dirname, '../frontend/views'))
-
 app.use('/tutorials',tutorialRouter)
 
 
@@ -25,7 +33,7 @@ app.get('/',(req,res)=>
 
             }
         ]
-        res.render('index',{tutorials:tutorials})
+        res.render('tutorials/index',{tutorials:tutorials})
     })
 
 
