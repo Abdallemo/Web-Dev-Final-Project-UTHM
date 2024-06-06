@@ -67,6 +67,20 @@ To get started with the Tutorial Website project, follow these steps:
 
 We welcome contributions to the Tutorial Website project! If you'd like to contribute, please fork the repository, make your changes, and submit a pull request. Make sure to follow our [contributing guidelines](CONTRIBUTING.md).
 
+<div align="center">
+  <h2>Our Contributors ❤️</h2>
+  <h3>Thank you for contributing to our repository</h3>
+
+<a href="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/graphs/contributors">
+<!-- it links to the "contributors" page of the Web-Dev-Final-Project-UTHM- repository. This page shows a graph of contributors and their contributions to the repository. -->
+<img src="https://contributors-img.web.app/image?repo=Abdallemo/Web-Dev-Final-Project-UTHM" />
+
+  </a>
+
+### Show some ❤️ by starring this awesome repository!
+
+</div>
+
 ## License
 
 The Tutorial Website project is licensed under the [MIT License](LICENSE).
