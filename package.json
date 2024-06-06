@@ -1,19 +1,22 @@
 {
   "name": "web-dev-final-project-uthm",
   "version": "1.0.0",
-  "description": "",
+  "description": "[![Project Status: Early Development](https://img.shields.io/badge/Project%20Status-Early%20Development-orange)](https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM)",
   "main": "index.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "start": "nodemon backend/server.js"
+    "dev": "nodemon backend/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.1",
     "node": "^20.14.0"
   },
   "devDependencies": {
