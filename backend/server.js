@@ -13,7 +13,9 @@ mongoose.connect('mongodb://localhost/Tutorial')
 
 app.set('view engine','ejs')
 app.set('views', path.join(__dirname, '../frontend/views'))
-app.use('/tutorials',tutorialRouter)
+
+app.use(express.urlencoded({extended:false}))
+
 
 
 app.get('/',(req,res)=>
@@ -36,6 +38,7 @@ app.get('/',(req,res)=>
         res.render('tutorials/index',{tutorials:tutorials})
     })
 
+app.use('/tutorials',tutorialRouter)
 
 app.listen(5000)
 
