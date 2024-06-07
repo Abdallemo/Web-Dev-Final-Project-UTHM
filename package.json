@@ -17,6 +17,7 @@
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
+    "highlight.js": "^11.9.0",
     "jsdom": "^24.1.0",
     "marked": "^1.2.0",
     "method-override": "^3.0.0",

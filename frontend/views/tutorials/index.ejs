@@ -7,13 +7,13 @@
 
     <title>Tutorial Website</title>
 </head>
-<body>
-    <div class="container">
+<body class="bg-opacity-75">
+    <div class="container " >
         <h1 class="mb-4">Tutorials available </h1>
         <a href="tutorials/new" class="btn btn-success"> Add New Tutorial</a>
         <% tutorials.forEach(tutorials => 
         { %>
-            <div class="card mt-4">
+            <div class="card mt-4 ">
                 <div class="card-body">
                     <h4 class="card-title "><%= tutorials.title %></h4>
                     <div class="card-subtitle text-muted mb-2">
