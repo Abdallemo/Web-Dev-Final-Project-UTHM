@@ -53,14 +53,24 @@ The Tutorial Website project fulfills the following requirements:
 ### Early Directory Tree structure
 <img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/dir_files_early_.png" >
 
+
+- [x] So far we implemented 
+<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Screenshot%202024-06-08%20041408.png" width="600px">
+<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Screenshot%202024-06-08%20041420.png" width="600x">
+<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Screenshot%202024-06-08%20041430.png" width="600px">
+<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Screenshot%202024-06-08%20041441.png" width="600px">
+
 ## Getting Started
 
 To get started with the Tutorial Website project, follow these steps:
 
 1. Clone the repository to your local machine.
 2. Install dependencies using `npm install`.
-3. Set up a MongoDB database and update the `config/dbConfig.js` file with your database configuration.
-4. Run the server using `node backend/server.js`.
+3. then run this code 
+~~~cli
+npm run dev
+~~~
+4. Set up a MongoDB database and update the `config/dbConfig.js` file with your database configuration.
 5. Access the website locally in your browser.
 
 ## Contributing
