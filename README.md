@@ -2,8 +2,7 @@
 
 # Tutorial Website
 
-Welcome to our Tutorial Website project! This project aims to create a platform where users can share tutorials on various topics, such as programming, cooking, DIY projects, and more. Users can sign up, log in, submit tutorials, and view tutorials submitted by others.
-
+Welcome to our Tutorial Website project! This project aims to create a platform where users can share tutorials on various topics, such as programming, cooking, DIY projects, and more. Users can sign up, log in, submit tutorials, and view tutorials submitted by others. Additionally, users can upload their tutorials in Markdown format, making it easy to format and style their content.
 ## Project Overview
 
 The Tutorial Website project is a dynamic web application developed as part of our web development course final project. It fulfills the requirements outlined by our instructor and provides a user-friendly platform for sharing and accessing tutorials.
