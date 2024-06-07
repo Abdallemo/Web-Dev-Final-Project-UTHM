@@ -9,7 +9,8 @@ router.get('/new', (req, res) => {
 router.get('/edit/:id', async (req, res) => {
     const tutorial = await Tutorial.findById(req.params.id);
     if (tutorial == null) res.redirect('/'); 
-    res.render('tutorials/edit', { tutorial: tutorial }); // Use found tutorial
+    res.render('tutorials/edit', { tutorial: tutorial }); 
+    
 });
 
 router.get('/:slug', async (req, res) => {
@@ -23,16 +24,19 @@ router.post('/', async (req, res, next) => {
     next();
 }, saveArticleThenRedirect('new'));
 
+
 router.put('/:id', async (req, res, next) => {
     req.tutorial = await Tutorial.findById(req.params.id);
-    if (req.tutorial == null) res.redirect('/'); // Added check for null
+    if (req.tutorial == null) res.redirect('/'); 
     next();
 }, saveArticleThenRedirect('edit'));
+
 
 router.delete('/:id', async (req, res) => {
     await Tutorial.findByIdAndDelete(req.params.id);
     res.redirect('/');
 });
+
 
 function saveArticleThenRedirect(path) {
     return async (req, res) => {
