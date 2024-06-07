@@ -29,7 +29,7 @@ The Tutorial Website project fulfills the following requirements:
 3. - [ ] **Backend Development:**
    - Backend functionality is implemented using Node.js to handle user authentication and tutorial submission.
 
-4. - [ ] **Database Integration:**
+4. - [x] **Database Integration:**
    - MongoDB is used as the database to store user information and tutorials.
 
 5. - [ ] **CRUD Operations Support:**
