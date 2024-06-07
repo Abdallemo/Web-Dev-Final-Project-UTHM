@@ -5,6 +5,9 @@ const { title } = require('process')
 const marked = require('marked')
 const slugify = require('slugify')
 const { strict } = require('assert')
+const createDompurify = require('dompurify')
+const {JSDOM} = require('jsdom')
+const dompurify = createDompurify(new JSDOM().window)
 
 
 const tutorialschema = new mongoose.Schema(
@@ -33,6 +36,11 @@ const tutorialschema = new mongoose.Schema(
             type:String,
             required:true,
             unique:true
+        },
+        sanatizedHtml:
+        {
+            type : String,
+            required:true
         }
     })
     tutorialschema.pre('validate',function(next)
@@ -45,6 +53,10 @@ const tutorialschema = new mongoose.Schema(
                     }
                 )
             }
-            next()
+        if(this.markdown)
+            {
+                this.sanatizedHtml = dompurify.sanitize(marked(this.markdown))
+            }
+        next()
     })
     module.exports= mongoose.model('Tutorial',tutorialschema)

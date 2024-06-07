@@ -9,17 +9,11 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="mb-1"><%= tutorial.title %></h1>
-        <div class="text-muted mb-2">
-            <%= tutorial.createdAt.toLocaleDateString() %>
-        </div>
-        <a href="/" class="btn btn-secondary">All Tutorials</a>
-        <a href="/tutorials/edit/<%= tutorial.id %>" class="btn btn-info">Edit</a>
-        
-        <div>
-            <%- tutorial.sanatizedHtml %>
-        </div>
-        
+        <h1 class="mb-4">Edit Tutorial</h1>
+        <form action="/tutorials/<%= tutorial.id %>?_method=PUT" method="post">
+            <!-- this includes from from a file.ejs -->
+            <%- include('_form_field') %>
+        </form>
     </div>
 </body>
 </html>

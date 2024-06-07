@@ -23,6 +23,7 @@
                         <%= tutorials.Description %>
                     </div>
                     <a href="tutorials/<%= tutorials.slug %>" class="btn btn-primary">Read More</a>
+                    <a href="tutorials/edit/<%= tutorials.id %>" class="btn btn-info">Edit</a>
                     <form action="/tutorials/<%= tutorials.id %>?_method=DELETE" method="post" class="d-inline">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
