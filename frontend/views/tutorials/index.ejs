@@ -17,11 +17,16 @@
                 <div class="card-body">
                     <h4 class="card-title "><%= tutorials.title %></h4>
                     <div class="card-subtitle text-muted mb-2">
-                        <%= tutorials.createAt.toLocaleDateString() %>
+                        <%= tutorials.createdAt.toLocaleDateString() %>
                     </div>
                     <div class="card-text mb2">
-                        <%= tutorials.description %>
+                        <%= tutorials.Description %>
                     </div>
+                    <a href="tutorials/<%= tutorials.slug %>" class="btn btn-primary">Read More</a>
+                    <form action="/tutorials/<%= tutorials.id %>?_method=DELETE" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    
 
 
                 </div>
