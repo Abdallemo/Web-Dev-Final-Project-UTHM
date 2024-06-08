@@ -2,8 +2,7 @@
 
 # Tutorial Website
 
-Welcome to our Tutorial Website project! This project aims to create a platform where users can share tutorials on various topics, such as programming, cooking, DIY projects, and more. Users can sign up, log in, submit tutorials, and view tutorials submitted by others.
-
+Welcome to our Tutorial Website project! This project aims to create a platform where users can share tutorials on various topics, such as programming, cooking, DIY projects, and more. Users can sign up, log in, submit tutorials, and view tutorials submitted by others. Additionally, users can upload their tutorials in Markdown format, making it easy to format and style their content.
 ## Project Overview
 
 The Tutorial Website project is a dynamic web application developed as part of our web development course final project. It fulfills the requirements outlined by our instructor and provides a user-friendly platform for sharing and accessing tutorials.
@@ -29,7 +28,7 @@ The Tutorial Website project fulfills the following requirements:
 3. - [ ] **Backend Development:**
    - Backend functionality is implemented using Node.js to handle user authentication and tutorial submission.
 
-4. - [ ] **Database Integration:**
+4. - [x] **Database Integration:**
    - MongoDB is used as the database to store user information and tutorials.
 
 5. - [ ] **CRUD Operations Support:**
@@ -53,14 +52,24 @@ The Tutorial Website project fulfills the following requirements:
 ### Early Directory Tree structure
 <img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/dir_files_early_.png" >
 
+
+- [x] So far we implemented 
+<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Screenshot%202024-06-08%20041408.png" width="600px">
+<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Screenshot%202024-06-08%20041420.png" width="600x">
+<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Screenshot%202024-06-08%20041430.png" width="600px">
+<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Screenshot%202024-06-08%20041441.png" width="600px">
+
 ## Getting Started
 
 To get started with the Tutorial Website project, follow these steps:
 
 1. Clone the repository to your local machine.
 2. Install dependencies using `npm install`.
-3. Set up a MongoDB database and update the `config/dbConfig.js` file with your database configuration.
-4. Run the server using `node backend/server.js`.
+3. then run this code 
+~~~cli
+npm run dev
+~~~
+4. Set up a MongoDB database and update the `config/dbConfig.js` file with your database configuration.
 5. Access the website locally in your browser.
 
 ## Contributing
