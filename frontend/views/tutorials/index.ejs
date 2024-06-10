@@ -8,15 +8,26 @@
     <title>Tutorial Website</title>
 </head>
 <body class="bg-opacity-75">
-    <div class="container " >
+    <div class="container">
         <%- include('_nav_bar') %>
-        <h1 class="mb-4">Tutorials available </h1>
-        <a href="tutorials/new" class="btn btn-success"> Add New Tutorial</a>
-        <% tutorials.forEach(tutorials => 
-        { %>
-            <div class="card mt-4 ">
+        <h1 class="mb-4">Tutorials available</h1>
+        <% if (!user) { %>
+        <a href="tutorials/login" class="btn btn-success">login</a>
+        <a href="tutorials/register" class="btn btn-success">register</a>
+        <% } %>
+
+        <% if (user) { %>
+            <a href="/logout" class="btn btn-warning">Logout</a>
+          <% } %>
+          
+        <% if (user) { %>
+            <a href="tutorials/new" class="btn btn-success">Add New Tutorial</a>
+        <% } %>
+            
+        <% tutorials.forEach(tutorials => { %>
+            <div class="card mt-4">
                 <div class="card-body">
-                    <h4 class="card-title "><%= tutorials.title %></h4>
+                    <h4 class="card-title"><%= tutorials.title %></h4>
                     <div class="card-subtitle text-muted mb-2">
                         <%= tutorials.createdAt.toLocaleDateString() %>
                     </div>
@@ -24,17 +35,16 @@
                         <%= tutorials.Description %>
                     </div>
                     <a href="tutorials/<%= tutorials.slug %>" class="btn btn-primary">Read More</a>
-                    <a href="tutorials/edit/<%= tutorials.id %>" class="btn btn-info">Edit</a>
-                    <form action="/tutorials/<%= tutorials.id %>?_method=DELETE" method="post" class="d-inline">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
                     
-
-
+                    <% if (user && tutorials.user.equals(user._id)) { %>
+                        <a href="tutorials/edit/<%= tutorials._id %>" class="btn btn-info">Edit</a>
+                        <form action="/tutorials/<%= tutorials._id %>?_method=DELETE" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    <% } %>
                 </div>
             </div>
-        <% })%>
-
+        <% }) %>
     </div>
 </body>
 </html>
