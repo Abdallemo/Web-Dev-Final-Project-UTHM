@@ -15,6 +15,7 @@ require('./config/passportConfig')
 
 const tutorialRouter = require('../backend/router/tutorialRouter')
 const path = require('path')
+const e = require('express')
 
 //* Database Connecttion
 
@@ -67,8 +68,9 @@ app.set('views', path.join(__dirname, '../frontend/views'))
 
 app.get('/', async (req,res)=>
     {
-        const tutorials = await Tutorial.find().sort({createdAt:'desc'})
+        const tutorials = await Tutorial.find().populate('user').sort({createdAt:'desc'})
         res.render('tutorials/index',{tutorials:tutorials,user:req.user})
+        
     })
 
 app.get('/login', (req, res) => 
