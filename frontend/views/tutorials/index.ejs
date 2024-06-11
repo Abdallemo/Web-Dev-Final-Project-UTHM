@@ -36,7 +36,7 @@
                     </svg>
                 </a>
                 
-                <span class="absolute top-0 right-0 text-white p-2 m-2">By <%= tutorials.user.username.slice(0,tutorials.user.username.indexOf("@"))  %></span>
+                <span class="absolute top-0 right-0 text-white p-2 m-2">@ <%= tutorials.user.username.slice(0,tutorials.user.username.indexOf("@"))  %></span>
             
 
                     <% if (user && tutorials.user.equals(user._id)) { %>
