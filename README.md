@@ -1,4 +1,5 @@
-[![Project Status: Early Development](https://img.shields.io/badge/Project%20Status-Early%20Development-orange)](https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM)
+[![Project Status: Stable](https://img.shields.io/badge/Project%20Status-Stable-brightgreen)](https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM)
+
 
 # Tutorial Website
 
@@ -19,22 +20,22 @@ The Tutorial Website project is a dynamic web application developed as part of o
 
 The Tutorial Website project fulfills the following requirements:
 
-1. - [ ] **Page Count and Content:**
+1. - [x] **Page Count and Content:**
    - The website contains multiple pages, including login/signup, tutorial submission, and tutorial viewing pages.
 
 2. - [ ] **Frontend Development:**
    - Developed using HTML, CSS, and JavaScript to ensure a cohesive visual appearance.
 
-3. - [ ] **Backend Development:**
+3. - [x] **Backend Development:**
    - Backend functionality is implemented using Node.js to handle user authentication and tutorial submission.
 
 4. - [x] **Database Integration:**
    - MongoDB is used as the database to store user information and tutorials.
 
-5. - [ ] **CRUD Operations Support:**
+5. - [x] **CRUD Operations Support:**
    - Users can create, read, and delete tutorials. Editing tutorials is restricted to the tutorial owner.
 
-6. - [ ] **Security Measures:**
+6. - [x] **Security Measures:**
    - Basic security measures are implemented, including user authentication, to protect user data.
 
 7. - [ ] **Navigation and Organization:**
@@ -52,13 +53,13 @@ The Tutorial Website project fulfills the following requirements:
 ### Early Directory Tree structure
 <img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/dir_files_early_.png" >
 
-
+<!-- 
 - [x] So far we implemented 
 <img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Screenshot%202024-06-08%20041408.png" width="600px">
 <img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Screenshot%202024-06-08%20041420.png" width="600x">
 <img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Screenshot%202024-06-08%20041430.png" width="600px">
 <img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Screenshot%202024-06-08%20041441.png" width="600px">
-
+-->
 ## Getting Started
 
 To get started with the Tutorial Website project, follow these steps:
