@@ -50,9 +50,9 @@ The Tutorial Website project fulfills the following requirements:
 10. - [ ] **Responsive Design:**
     - The website is responsive and provides a seamless user experience across various devices.
 
-### Early Directory Tree structure
+### stable Directory Tree structure
 
-<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/dir_files_early_.png" >
+<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Screenshot 2024-06-11 122556.png" >
 
 ## Getting Started
 
