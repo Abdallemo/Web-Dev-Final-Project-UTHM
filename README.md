@@ -19,22 +19,22 @@ The Tutorial Website project is a dynamic web application developed as part of o
 
 The Tutorial Website project fulfills the following requirements:
 
-1. - [ ] **Page Count and Content:**
+1. - [x] **Page Count and Content:**
    - The website contains multiple pages, including login/signup, tutorial submission, and tutorial viewing pages.
 
 2. - [ ] **Frontend Development:**
    - Developed using HTML, CSS, and JavaScript to ensure a cohesive visual appearance.
 
-3. - [ ] **Backend Development:**
+3. - [x] **Backend Development:**
    - Backend functionality is implemented using Node.js to handle user authentication and tutorial submission.
 
 4. - [x] **Database Integration:**
    - MongoDB is used as the database to store user information and tutorials.
 
-5. - [ ] **CRUD Operations Support:**
+5. - [x] **CRUD Operations Support:**
    - Users can create, read, and delete tutorials. Editing tutorials is restricted to the tutorial owner.
 
-6. - [ ] **Security Measures:**
+6. - [x] **Security Measures:**
    - Basic security measures are implemented, including user authentication, to protect user data.
 
 7. - [ ] **Navigation and Organization:**
@@ -46,7 +46,7 @@ The Tutorial Website project fulfills the following requirements:
 9. - [ ] **Multimedia Content:**
    - Users can upload images or videos as part of their tutorial submissions.
 
-10. - [ ] **Responsive Design:**
+10. - [x] **Responsive Design:**
     - The website is responsive and provides a seamless user experience across various devices.
 
 ### Early Directory Tree structure
