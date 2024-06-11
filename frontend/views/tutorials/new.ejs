@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Tutorial Website</title>
 </head>
-<body>
+<body class="bg-gradient-to-r from-teal-400 to-blue-500 bg-gradient-blur-2xl">
     <div >
-        <h1 class="mb-4">Add New Tutorial</h1>
+        <div class="container  mx-auto px-4 py-8 "> 
+            <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white flex flex-col items-center">Add New Tutorial</h1>
+        
         <form action="/tutorials" method="post">
             <div class="">
             <%- include('_form_field') %>
