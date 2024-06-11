@@ -46,8 +46,6 @@ dompurify.addHook('afterSanitizeElements', function(node) {
 
 
 
-
-
 const tutorialschema = new mongoose.Schema(
     {
         title:
