@@ -7,11 +7,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Tutorial Website</title>
 </head>
-<body class="bg-gradient-to-r from-blue-500">
-    <!-- <div class="container"> -->
+<body class="bg-gradient-to-r from-teal-400 to-blue-500 bg-gradient-blur-2xl">
+   
         <%- include('_nav_bar') %>
         
-        <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Tutorials Available</h1>
+        <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white justify-center">Tutorials Available</h1>
         <!-- //<% if (!user) { %>
         <a href="tutorials/login" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">login</a>
         <a href="tutorials/register" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">register</a>
@@ -29,7 +29,7 @@
 
             
 
-                <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 min-w-[700px]">
+                <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700 min-w-[700px] shadow-2xl drop-shadow-2xl">
     
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= tutorials.title %></h5>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><%= tutorials.createdAt.toLocaleDateString() %></p>
