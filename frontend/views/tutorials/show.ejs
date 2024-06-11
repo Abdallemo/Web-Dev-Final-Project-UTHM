@@ -14,7 +14,9 @@
             <%= tutorial.createdAt.toLocaleDateString() %>
         </div>
         <a href="/" class="btn btn-secondary">All Tutorials</a>
+        <% if (user && tutorial.user.equals(user._id)) { %>
         <a href="/tutorials/edit/<%= tutorial.id %>" class="btn btn-info">Edit</a>
+        <% } %>
         
         <div>
             <%- tutorial.sanatizedHtml %>

@@ -6,6 +6,7 @@ const methodOverride = require('method-override')
 const User = require('./models/userModel');
 const passport = require('passport');
 const session = require('express-session');
+const flash = require('express-flash');
 const { ensureAuthenticated } = require('./middleware/authMiddleware');
 
 
@@ -26,6 +27,7 @@ mongoose.connect('mongodb://localhost/Tutorial')
     }));
     app.use(express.urlencoded({extended:false}))
     app.use(methodOverride('_method'))
+    app.use(flash());
   
 
 //? All setters
@@ -38,7 +40,9 @@ app.set('views', path.join(__dirname, '../frontend/views'))
 
   app.post('/login', passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/login'
+    failureRedirect: '/login',
+    failureFlash: true
+    
   }));
   
   app.post('/register', async (req, res) => {
@@ -50,6 +54,7 @@ app.set('views', path.join(__dirname, '../frontend/views'))
         res.redirect('/login');
     } catch (error) {
         // Handle errors appropriately
+        req.flash('error', 'An error occurred. Please try again later.');
         console.error(error);
         res.redirect('/register');
     }
