@@ -7,6 +7,15 @@ Welcome to our Tutorial Website project! This project aims to create a platform 
 
 The Tutorial Website project is a dynamic web application developed as part of our web development course final project. It fulfills the requirements outlined by our instructor and provides a user-friendly platform for sharing and accessing tutorials.
 
+## <p style="font-family:var(--ff-philosopher);font-size:3rem;text-align:center;"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/High%20Voltage.png" alt="High Voltage" width="40" height="40" />Tech Stack</p>
+<center><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5"><img src="https://img.shields.io/badge/EJS-E34F26.svg?style=for-the-badge&logo=HTML5&logoColor=white"></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black"></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="https://img.shields.io/badge/Tailwind-1572B6.svg?style=for-the-badge&logo=CSS3&logoColor=black"></a></center>
+
+<br><br>
+
+<br><be>
+
 ## Features
 
 - **User Authentication:** Users can sign up and log in to the website.
