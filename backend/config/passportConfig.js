@@ -1,4 +1,4 @@
-// config/passportConfig.js
+// used passport.js to insure user authentication and authorization
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('./../models/userModel');
