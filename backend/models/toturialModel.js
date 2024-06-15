@@ -17,12 +17,12 @@ marked.setOptions({
     sanitize: false,
     highlight: function (code, lang) {
         if (lang && hljs.getLanguage(lang)) {
-            return hljs.highlight(lang, code).value;
+            return hljs.highlight(code, { language: lang }).value;
         } else {
             return hljs.highlightAuto(code).value;
         }
     }
-  });
+});
 
   // Add hooks to dompurify for HTML sanitization
 dompurify.addHook('afterSanitizeAttributes', function(node) {
