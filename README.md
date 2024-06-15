@@ -63,10 +63,11 @@ The Tutorial Website project fulfills the following requirements:
 
 
 - [x] So far we implemented 
-<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Screenshot%202024-06-08%20041408.png" width="600px">
-<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Screenshot%202024-06-08%20041420.png" width="600x">
-<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Screenshot%202024-06-08%20041430.png" width="600px">
-<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Screenshot%202024-06-08%20041441.png" width="600px">
+<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Tutorial Website.png" width="600px">
+<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Tutorial Website (1).png" width="600x">
+<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Tutorial Website (2).png" width="600px">
+<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Tutorial Website (3).png" width="600px">
+<img src="https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM/blob/main/readmeImags/Tutorial Website (4).png" width="600px">
 
 ## Getting Started
 
