@@ -14,6 +14,9 @@ router.get('/new', (req, res) => {
 router.get('/register', (req, res) => {
     res.render('tutorials/register', { user: new User() });
 });
+router.get('/aboutus', (req, res) => {
+    res.render('tutorials/aboutus');
+});
 
 router.get('/login', (req, res) => {
     res.render('tutorials/login', { user: new User() });
@@ -22,13 +25,13 @@ router.get('/login', (req, res) => {
 router.get('/edit/:id', async (req, res) => {
     const tutorial = await Tutorial.findById(req.params.id);
     if (tutorial == null) res.redirect('/');
-    res.render('tutorials/edit', { tutorial: tutorial });
+    res.render('tutorials/edit', { tutorial: tutorial ,header: { location: '/edit' }});
 });
 
 router.get('/:slug', async (req, res) => {
     const tutorial = await Tutorial.findOne({ slug: req.params.slug });
     if (tutorial == null) res.redirect('/');
-    res.render('tutorials/show', { tutorial: tutorial });
+    res.render('tutorials/show', { tutorial: tutorial ,header: { location: '/show' }});
 });
 
 router.post('/', ensureAuthenticated, async (req, res, next) => {

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <%- include('_nav_bar') %>
+    
+        <div class="container mx-auto p-8">
+            <h1 class="text-4xl font-bold mb-4">About Us</h1>
+            <p class="mb-8">Welcome to our Tutorial Website! We aim to create a platform where users can share tutorials on various topics. Our goal is to make learning accessible and enjoyable for everyone.</p>
+            
+            <h2 class="text-2xl font-semibold mb-4">Our Contributors</h2>
+            <div id="contributors" class="flex flex-wrap">
+                <!-- Contributors will be dynamically loaded here -->
+            </div>
+            
+        </div>
+    
+        <script>
+             async function fetchContributors() {
+            // Predefined list of additional collaborators
+            const additionalContributors = [
+                {
+                    login: 'Alhussein',
+                    avatar_url: 'https://avatars.githubusercontent.com/u/164722726?v=4',
+                    html_url: 'https://github.com/Alhussein20'
+                },
+                {
+                    login: 'AbobakrEisa',
+                    avatar_url: 'https://avatars.githubusercontent.com/u/166981461?v=4',
+                    html_url: 'https://github.com/AbobakrEisa7070'
+                },
+                {
+                    login: 'Ridwan',
+                    avatar_url: 'https://avatars.githubusercontent.com/u/95159445?v=4',
+                    html_url: 'https://github.com/rafiafin22'
+                },
+                {
+                    login: 'Zakariajama',
+                    avatar_url: 'https://avatars.githubusercontent.com/u/166981461?v=4',
+                    html_url: 'https://github.com/Zakariajama20000'
+                }
+                
+            ];
+
+            // Fetch contributors from GitHub API
+            const response = await fetch('https://api.github.com/repos/Abdallemo/Web-Dev-Final-Project-UTHM/contributors');
+            const apiContributors = await response.json();
+
+            // Combine both lists
+            const allContributors = [...apiContributors, ...additionalContributors];
+
+            // Render contributors
+            const container = document.getElementById('contributors');
+            allContributors.forEach(contributor => {
+                const div = document.createElement('div');
+                div.className = 'w-full md:w-1/3 p-4';
+                div.innerHTML = `
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <img class="w-16 h-16 rounded-full mx-auto" src="${contributor.avatar_url}" alt="${contributor.login}">
+                        <h3 class="text-xl font-medium mt-4">${contributor.login}</h3>
+                        <p class="mt-2"><a class="text-blue-500" href="${contributor.html_url}" target="_blank">GitHub Profile</a></p>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        fetchContributors();
+    </script>
+   
+
+
+<script src="https://unpkg.com/flowbite@1.6.4/dist/flowbite.min.js"></script>
+
+</body>
+</html>

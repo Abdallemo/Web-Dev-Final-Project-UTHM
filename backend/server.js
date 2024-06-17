@@ -69,7 +69,7 @@ app.set('views', path.join(__dirname, '../frontend/views'))
 app.get('/', async (req,res)=>
     {
         const tutorials = await Tutorial.find().populate('user').sort({createdAt:'desc'})
-        res.render('tutorials/index',{tutorials:tutorials,user:req.user})
+        res.render('tutorials/index',{tutorials:tutorials,user:req.user,header: { location: '/' }})
         
     })
 
@@ -92,6 +92,10 @@ app.get('/register', (req, res) =>
     });
   });
   
+  app.get('/aboutus', (req,res)=>
+    {
+      res.render('tutorials/aboutus', { header: { location: '/aboutus' } });
+    })
       
 
 app.use('/tutorials',tutorialRouter)
