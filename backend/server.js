@@ -68,8 +68,18 @@ app.set('views', path.join(__dirname, '../frontend/views'))
 
 app.get('/', async (req,res)=>
     {
-        const tutorials = await Tutorial.find().populate('user').sort({createdAt:'desc'})
-        res.render('tutorials/index',{tutorials:tutorials,user:req.user,header: { location: '/' }})
+        let searchOptions = {}
+        if(req.query.search != null && req.query.search !== '')
+          {
+            searchOptions.title = new RegExp('^'+req.query.search, 'i')
+          }
+        const tutorials = await Tutorial.find(searchOptions).populate('user').sort({createdAt:'desc'})
+        res.render('tutorials/index',{
+          tutorials:tutorials,
+          searchOptions:req.query,
+          user:req.user,
+          header: { location: '/' }
+        })
         
     })
 
