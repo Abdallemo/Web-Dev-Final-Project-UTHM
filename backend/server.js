@@ -4,17 +4,17 @@ const mongoose = require('mongoose')
 const Tutorial = require('./models/toturialModel')
 const methodOverride = require('method-override')
 const User = require('./models/userModel');
+const Reviewsmdl = require('./models/reviewsModel');
 const passport = require('passport');
 const session = require('express-session');
 const flash = require('express-flash');
+const multer = require('multer');
 const { ensureAuthenticated } = require('./middleware/authMiddleware');
-
-
-
 require('./config/passportConfig')
-
 const tutorialRouter = require('../backend/router/tutorialRouter')
 const path = require('path')
+const imageMimeTypes = ['images/jpeg','images/png','images/gif']
+const uploadPath = path.join('backend',Reviewsmdl.coverImageBasePath);
 const e = require('express')
 
 //* Database Connecttion
@@ -87,7 +87,12 @@ app.get('/login', (req, res) =>
   {
         res.render('tutorials/login');
   });
-      
+
+app.get('/review', (req, res) => 
+  {
+    res.render('tutorials/review',{header: { location: '/review' }});
+  });  
+
 app.get('/register', (req, res) => 
   {
         res.render('tutorials/register');
@@ -106,7 +111,38 @@ app.get('/register', (req, res) =>
     {
       res.render('tutorials/aboutus', { header: { location: '/aboutus' } });
     })
-      
+
+    const upload = multer(
+      {
+        dest: uploadPath,
+        fileFilter:(req,file,callback) =>
+          {
+            callback(null,imageMimeTypes.includes(file.mimetype))
+          }
+  
+      })
+  
+  //
+  
+  app.post('/review',upload.single('cover'),async(req,res)=>
+      {
+        console.log()
+        try{
+            const fileName = req.file !=null ? req.file.filename : null;
+            const review = new Reviewsmdl(
+            {
+                reviewEmail:req.body.email,
+                reviewMedia: fileName,
+                reviewmessage: req.body.message
+            })
+            const newReview = await review.save();
+            res.redirect('/');
+          }catch(error)
+          {
+            console.log(error);
+          }
+      })
+  
 
 app.use('/tutorials',tutorialRouter)
 

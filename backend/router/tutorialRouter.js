@@ -3,8 +3,11 @@ const router = express.Router();
 const Tutorial = require('./../models/toturialModel');
 const User = require('./../models/userModel');
 const { ensureAuthenticated, checkTutorialOwnership } = require('../middleware/authMiddleware');
-
-
+const Reviewsmdl = require('./../models/reviewsModel');
+const multer = require('multer');
+const path = require('path')
+const imageMimeTypes = ['images/jpeg','images/png','images/gif']
+const uploadPath = path.join('backend',Reviewsmdl.coverImageBasePath);
 
 
 router.get('/new', (req, res) => {
@@ -17,6 +20,44 @@ router.get('/register', (req, res) => {
 router.get('/aboutus', (req, res) => {
     res.render('tutorials/aboutus');
 });
+router.get('/review',(req,res)=>
+    {
+        res.render('tutorials/review',{header: { location: '/review' }});
+    })
+
+// hereis the upload logic
+const upload = multer(
+    {
+      dest: uploadPath,
+      fileFilter:(req,file,callback) =>
+        {
+          callback(null,imageMimeTypes.includes(file.mimetype))
+        }
+
+    })
+
+//
+
+router.post('/review',upload.single('cover'),async(req,res)=>
+    {
+      const fileName = req.file !=null ? req.file.filename : null;
+      const review = new Reviewsmdl(
+        {
+            reviewEmail:req.body.email,
+            reviewMedia: fileName,
+            reviewmessage: req.body.message
+        })
+        try
+        {
+        const newReview = await review.save()
+            res.redirect('/')
+            
+    
+        }catch
+        {
+            
+        }
+    })
 
 router.get('/login', (req, res) => {
     res.render('tutorials/login', { user: new User() });

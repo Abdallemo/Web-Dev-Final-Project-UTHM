@@ -28,6 +28,7 @@
     "marked": "^1.2.0",
     "method-override": "^3.0.0",
     "mongoose": "^8.4.1",
+    "multer": "^1.4.5-lts.1",
     "node": "^20.14.0",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
