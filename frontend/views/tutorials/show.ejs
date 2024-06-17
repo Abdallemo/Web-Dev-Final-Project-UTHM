@@ -27,6 +27,60 @@
         </div>
     </div>
     <script src="https://unpkg.com/flowbite@1.6.4/dist/flowbite.min.js"></script>
-    <!-- <script src="../../../postcss.config.js"></script> -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+    <script>
+         document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightBlock(block);
+            const button = document.createElement('button');
+            button.innerHTML = `
+                 <svg class="w-6 h-6 text-gray-800 dark:text-white inline-block mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-6 5h6m-6 4h6M10 3v4h4V3h-4Z"/>
+                </svg>
+                Copy`;
+            button.className = 'copy-button text-sm bg-gray-800 text-white py-1 px-2 rounded-md focus:outline-none';
+            block.parentNode.insertBefore(button, block);
+        });
+
+        new ClipboardJS('.copy-button', {
+            target: function(trigger) {
+                return trigger.nextElementSibling;
+            }
+        });
+    });
+    </script>
+    <style>
+        pre {
+        background-color: #1a202c; /* Dark background color */
+        padding: 16px; /* Padding for code block */
+        border-radius: 8px; /* Rounded corners */
+        overflow-x: auto; /* Allow horizontal scroll for long lines */
+        position: relative; /* Ensure position context for absolute positioning */
+        margin: 16px 0; /* Adjust margin for spacing */
+    }
+
+    code {
+        display: block; /* Ensure code is displayed as block */
+        padding: 0; /* Remove default padding */
+        margin: 0; /* Remove default margin */
+        overflow-wrap: break-word; /* Wrap long lines */
+    }
+
+    .copy-button {
+        position: absolute; /* Position the button absolutely */
+        top: 8px; /* Adjust top spacing */
+        right: 8px; /* Adjust right spacing */
+        z-index: 1; /* Ensure button appears above the code block */
+        background-color: rgba(0, 0, 0, 0); /* Semi-transparent background color */
+        padding: 4px 8px; /* Padding for the button */
+        border-radius: 4px; /* Rounded corners */
+        transition: background-color 0.3s ease; /* Smooth transition for background color */
+    }
+
+    .copy-button:hover {
+        background-color: rgba(0, 0, 0, 0.7); /* Darker background on hover */
+    }
+    </style>
 </body>
 </html>
