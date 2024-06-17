@@ -35,10 +35,10 @@
             hljs.highlightBlock(block);
             const button = document.createElement('button');
             button.innerHTML = `
-                 <svg class="w-6 h-6 text-gray-800 dark:text-white inline-block mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                 <svg class="w-6 h-6 dark:text-white inline-block mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-6 5h6m-6 4h6M10 3v4h4V3h-4Z"/>
                 </svg>
-                Copy`;
+                `;
             button.className = 'copy-button text-sm bg-gray-800 text-white py-1 px-2 rounded-md focus:outline-none';
             block.parentNode.insertBefore(button, block);
         });
