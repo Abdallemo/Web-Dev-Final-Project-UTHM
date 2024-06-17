@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- _onboarding.ejs -->
+
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-75">
+    <div class="relative max-w-lg w-full p-8 bg-white rounded-lg shadow-lg">
+        <div class="absolute top-0 right-0 p-4">
+            <button id="closeOnboarding" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="onboardingContent">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold mb-2">Welcome to Our Tutorial Website!</h2>
+                <p class="text-gray-500">Let's get started with a quick tour.</p>
+            </div>
+            <div class="relative">
+                <div class="absolute top-1/2 left-0 transform -translate-y-1/2 translate-x-1/2 bg-blue-500 rounded-full w-6 h-6"></div>
+                <div class="absolute top-1/2 right-0 transform -translate-y-1/2 -translate-x-1/2 bg-blue-500 rounded-full w-6 h-6"></div>
+                <div class="p-6">
+                    <h3 class="text-lg font-semibold mb-2">Step 1: Sign Up</h3>
+                    <p class="text-gray-600">Click the "Log in" or "Get started" button to create your account.</p>
+                </div>
+            </div>
+            <div class="relative mt-6">
+                <div class="absolute top-1/2 left-0 transform -translate-y-1/2 translate-x-1/2 bg-blue-500 rounded-full w-6 h-6"></div>
+                <div class="absolute top-1/2 right-0 transform -translate-y-1/2 -translate-x-1/2 bg-blue-500 rounded-full w-6 h-6"></div>
+                <div class="p-6">
+                    <h3 class="text-lg font-semibold mb-2">Step 2: Explore Tutorials</h3>
+                    <p class="text-gray-600">Browse through various tutorials submitted by other users.</p>
+                </div>
+            </div>
+            <div class="relative mt-6">
+                <div class="absolute top-1/2 left-0 transform -translate-y-1/2 translate-x-1/2 bg-blue-500 rounded-full w-6 h-6"></div>
+                <div class="absolute top-1/2 right-0 transform -translate-y-1/2 -translate-x-1/2 bg-blue-500 rounded-full w-6 h-6"></div>
+                <div class="p-6">
+                    <h3 class="text-lg font-semibold mb-2">Step 3: Add Your Own Tutorial</h3>
+                    <p class="text-gray-600">Share your knowledge by submitting your own tutorial!</p>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <button id="finishOnboarding" class="text-white bg-blue-500 hover:bg-blue-600 focus:outline-none py-2 px-6 rounded-lg">Finish</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Close onboarding
+    const closeOnboarding = document.getElementById('closeOnboarding');
+    if (closeOnboarding) {
+        closeOnboarding.addEventListener('click', () => {
+            document.getElementById('onboardingContent').remove();
+        });
+    }
+
+    // Finish onboarding
+    const finishOnboarding = document.getElementById('finishOnboarding');
+    if (finishOnboarding) {
+        finishOnboarding.addEventListener('click', () => {
+            document.getElementById('onboardingContent').remove();
+        });
+    }
+</script>
+
+    
+</body>
+</html>
