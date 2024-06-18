@@ -13,7 +13,7 @@ const { ensureAuthenticated } = require('./middleware/authMiddleware');
 require('./config/passportConfig')
 const tutorialRouter = require('../backend/router/tutorialRouter')
 const path = require('path')
-const imageMimeTypes = ['images/jpeg','images/png','images/gif']
+const imageMimeTypes = ['image/jpeg','image/png','image/gif']
 const uploadPath = path.join('backend',Reviewsmdl.coverImageBasePath);
 const e = require('express')
 
@@ -112,36 +112,39 @@ app.get('/register', (req, res) =>
       res.render('tutorials/aboutus', { header: { location: '/aboutus' } });
     })
 
-    const upload = multer(
-      {
-        dest: uploadPath,
-        fileFilter:(req,file,callback) =>
-          {
-            callback(null,imageMimeTypes.includes(file.mimetype))
-          }
+    const storage = multer.diskStorage({
+      destination: (req, file, cb) => {
+          cb(null, uploadPath);
+      },
+      filename: (req, file, cb) => {
+          cb(null, Date.now() + '-' + file.originalname);
+      }
+  });
   
-      })
+  const upload = multer({
+      storage: storage,
+      fileFilter: (req, file, callback) => {
+          callback(null, imageMimeTypes.includes(file.mimetype));
+      }
+  });
   
-  //
-  
-  app.post('/review',upload.single('cover'),async(req,res)=>
-      {
-        console.log()
-        try{
-            const fileName = req.file !=null ? req.file.filename : null;
-            const review = new Reviewsmdl(
-            {
-                reviewEmail:req.body.email,
-                reviewMedia: fileName,
-                reviewmessage: req.body.message
-            })
-            const newReview = await review.save();
-            res.redirect('/');
-          }catch(error)
-          {
-            console.log(error);
-          }
-      })
+  app.post('/review', upload.single('Media'), async (req, res) => {
+      // console.log('Received file:', req.file);
+      const fileName = req.file != null ? req.file.filename : null;
+      // console.log('File name to be saved in DB:', fileName);
+      const review = new Reviewsmdl({
+          reviewEmail: req.body.email,
+          reviewMedia: fileName,
+          reviewmessage: req.body.message
+      });
+      try {
+          const newReview = await review.save();
+          res.redirect('/');
+      } catch (error) {
+          console.error(error);
+          res.redirect('/review');
+      }
+  });
   
 
 app.use('/tutorials',tutorialRouter)

@@ -18,7 +18,7 @@
 </head>
 <body >
     <%- include('_nav_bar') %>
-    <div >
+    <div class="">
         <section class="bg-white dark:bg-gray-900">
             <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                 <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Us</h2>
@@ -26,9 +26,13 @@
                 <!-- from starts from here -->
                 <form action="/review" class="space-y-8" enctype="multipart/form-data" method="post" >
 
-                        <label for="fileinput">Cover</label>
-                        <input type="file" name="cover" >
-                
+                        <!-- <label for="fileinput">Cover</label>
+                        <input type="file" name="Media" > -->
+                    
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
+                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file" name="Media">
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG or GIF.</p>
+
                     <div class="flex items-center justify-center w-full">
                         <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 hidden filepond" >
 
@@ -50,7 +54,8 @@
           </section>
 
     </div>
-    <!-- <script>
+    <script src="https://unpkg.com/flowbite@1.6.4/dist/flowbite.min.js"></script>
+    <script>
         FilePond.registerPlugin(
             FilePondPluginImagePreview,
             FilePondPluginImageResize,
@@ -59,6 +64,6 @@
         FilePond.parse(document.body);
 
 
-    </script> -->
+    </script>
 </body>
 </html>
