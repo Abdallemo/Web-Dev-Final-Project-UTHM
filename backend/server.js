@@ -1,3 +1,4 @@
+
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
@@ -19,7 +20,7 @@ const e = require('express')
 
 //* Database Connecttion
 
-mongoose.connect('mongodb://localhost/Tutorial')
+mongoose.connect('mongodb://localhost/Tutorial ')
 
   app.use(session({
       secret: 'H2HSSS$HS',
