@@ -33,12 +33,9 @@
                     
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
                         <input class="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" type="file" name="Media">
-                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG or GIF.</p>
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help" accept="image/*" onchange="loadFile(event)">PNG, JPG or GIF.</p>
 
-                    <div class="flex items-center justify-center w-full">
-                        <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 hidden filepond" >
-
-                    </div>
+                        <img id="output" class="mt-2 w-64 h-64 object-cover hidden"/>
 
                     <!-- here the not so important -->
                     <div>
@@ -62,14 +59,16 @@
     <script  src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
     <script src="https://unpkg.com/filepond@^4/dist/filepond.js" ></script>
     <script>
-        // FilePond.registerPlugin(FilePondPluginImagePreview);
-        // FilePond.registerPlugin(FilePondPluginImageResize);
-        // const inputElement = document.querySelector('input[type="file"]');
-        // const pond = FilePond.create(inputElement);
-        // FilePond.parse(document.body);
         
-
-
+        var loadFile = function(event) {
+            var output = document.getElementById('output');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.classList.remove('hidden');  // Show the image
+            output.onload = function() {
+                URL.revokeObjectURL(output.src) // free memory
+            }
+        };
+        
     </script>
 </body>
 </html>
