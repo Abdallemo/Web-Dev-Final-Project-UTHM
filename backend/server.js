@@ -17,8 +17,11 @@ const path = require('path')
 const imageMimeTypes = ['image/jpeg','image/png','image/gif']
 const uploadPath = path.join('backend',Reviewsmdl.coverImageBasePath);
 const e = require('express')
-require('dotenv').config();
 
+if(process.env.NODE_ENV !== 'production'){
+  
+  require('dotenv').config();
+}
 //* Database Connecttion
 const databaseurl = process.env.DATABASE_URL
 mongoose.connect(process.env.DATABASE_URL)
