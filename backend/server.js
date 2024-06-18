@@ -17,10 +17,14 @@ const path = require('path')
 const imageMimeTypes = ['image/jpeg','image/png','image/gif']
 const uploadPath = path.join('backend',Reviewsmdl.coverImageBasePath);
 const e = require('express')
+require('dotenv').config();
 
 //* Database Connecttion
+const databaseurl = process.env.DATABASE_URL
+mongoose.connect(process.env.DATABASE_URL)
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
-mongoose.connect('mongodb://localhost/Tutorial ')
 
   app.use(session({
       secret: 'H2HSSS$HS',
