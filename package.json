@@ -2,7 +2,7 @@
   "name": "web-dev-final-project-uthm",
   "version": "1.0.0",
   "description": "[![Project Status: Early Development](https://img.shields.io/badge/Project%20Status-Early%20Development-orange)](https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM)",
-  "main": "server.js",
+  "main": "backend/server.js",
   "directories": {
     "doc": "docs"
   },
