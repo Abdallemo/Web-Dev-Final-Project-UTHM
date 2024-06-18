@@ -43,7 +43,7 @@ mongoose.connect(process.env.DATABASE_URL)
 app.use(passport.initialize());
 app.use(passport.session());
 app.set('view engine','ejs')
-app.set('views', path.join(__dirname, '../frontend/views'))
+app.set('views', path.join(__dirname, './views'))
 
   
 

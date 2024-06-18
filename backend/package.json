@@ -2,14 +2,15 @@
   "name": "web-dev-final-project-uthm",
   "version": "1.0.0",
   "description": "[![Project Status: Early Development](https://img.shields.io/badge/Project%20Status-Early%20Development-orange)](https://github.com/Abdallemo/Web-Dev-Final-Project-UTHM)",
-  "main": "backend/server.js",
+  "main": "backend/server.js","engines": {
+    "node": "20.x"
+  },
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "dev": "nodemon backend/server.js",
-    "build":"node backend/server.js",
-    "start": "node backend/server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
