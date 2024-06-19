@@ -1,1 +1,79 @@
-how to use
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/flowbite@1.6.4/dist/flowbite.min.js" defer></script>
+
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <%- include('_nav_bar')  %>
+
+    <!-- Page Content -->
+    <div class="container mx-auto py-12">
+        <h1 class="text-4xl font-bold text-center text-gray-900 mb-8">How to Use</h1>
+        <p class="text-center text-gray-700 mb-12">Watch the videos below to learn how to use our platform effectively.</p>
+
+        <!-- Videos Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Video 1 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe class="w-full h-96" src="https://www.youtube.com/embed/VhaHs1thku0?si=0z8ce4NcrjMq-lot" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Getting Started</h2>
+                    <p class="text-gray-600 mt-2">Learn how to get started with our platform.</p>
+                </div>
+            </div>
+            
+            <!-- Video 2 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe class="w-full h-96" src="https://www.youtube.com/embed/aRQXMVGpoD0?si=vYaWx5czR065OWGt" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Creating Your First Tutorial</h2>
+                    <p class="text-gray-600 mt-2">Step-by-step guide to creating your first tutorial.</p>
+                </div>
+            </div>
+            
+            <!-- Video 3 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe class="w-full h-96" src="https://www.youtube.com/embed/BJ0vSngdPTI?si=FNxr49gOjm_0YpCm" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Add Mockup Styles</h2>
+                    <p class="text-gray-600 mt-2">Explore How You can cucstomzie Your Tutorial in our platform.</p>
+                </div>
+            </div>
+            <!-- Video 4 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe class="w-full h-96" src="https://www.youtube.com/embed/C6HvQY9RgNw?si=e62qrfCJ3ODc7lCL" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Advanced Features</h2>
+                    <p class="text-gray-600 mt-2">How to add coding snips into Your Tutorial in our platform.</p>
+                </div>
+            </div>
+            <!-- Video 5 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe class="w-full h-96" src="https://www.youtube.com/embed/ve9Zq8FcFf4?si=LbQRKAKTyuBmw0TV" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Searching Sunctionality</h2>
+                    <p class="text-gray-600 mt-2">You are able To search the Available Tutorials in our platform.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/flowbite@1.6.4/dist/flowbite.min.js"></script>
+</body>
+</html>
