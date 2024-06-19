@@ -1,22 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page</title>
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Admin Page</h1>
-    <% reviews.forEach(function(reviews) { %>
-        <div>
-            <h2>Review from <%= reviews.reviewEmail %></h2>
-            <p><%= reviews.reviewmessage %></p>
-            <% if (reviews.reviewMedia && reviews.reviewMediaType) { %>
-                <img src="<%= reviews.MediaImageActual %>" alt="Review Image">
-            <% } else { %>
-                <p>No image uploaded</p>
-            <% } %>
+
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div>
+                <a href="/" class="text-white text-lg font-bold">Admin Dashboard</a>
+            </div>
+            <div>
+                <!-- Add any navbar items here -->
+            </div>
         </div>
-    <% }); %>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto mt-8">
+
+        <!-- Page Title -->
+        <h1 class="text-3xl font-bold mb-4">Reviews</h1>
+
+        <!-- Review Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <% reviews.forEach(function(review) { %>
+                <div class="bg-white rounded-lg shadow-lg p-4">
+                    <h2 class="text-xl font-bold mb-2">Review from <%= review.reviewEmail %></h2>
+                    <p class="mb-4"><%= review.reviewmessage %></p>
+                    <% if (review.reviewMedia && review.reviewMediaType) { %>
+                        <img src="data:<%= review.reviewMediaType %>;base64,<%= review.reviewMedia.toString('base64') %>"
+                            alt="Review Image" class="w-full h-auto mb-2">
+                    <% } %>
+                    <div class="flex justify-end">
+                        <!-- Add any action buttons here -->
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+
+    </div>
+
 </body>
+
 </html>

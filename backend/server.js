@@ -29,6 +29,14 @@ mongoose.connect(process.env.DATABASE_URL)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
+  const jsonLimit = '50mb';  // Example limit for JSON bodies
+  const urlEncodedLimit = '50mb'; 
+
+  app.use(bodyParser.json({limit: "50mb"}));
+  app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
+
+  console.log(`JSON body limit set to: ${jsonLimit}`);
+console.log(`URL-encoded body limit set to: ${urlEncodedLimit}`);
 
   app.use(session({
       secret: 'H2HSSS$HS',
@@ -38,10 +46,8 @@ mongoose.connect(process.env.DATABASE_URL)
     app.use(express.urlencoded({extended:false}))
     app.use(methodOverride('_method'))
     app.use(flash());
-    app.use(bodyParser.json({ limit: '50mb' }));
 
-    // Increase the limit for URL-encoded payloads
-    app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+    // Middleware to log the current limits
   
 
 //? All setters
