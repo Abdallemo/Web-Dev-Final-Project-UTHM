@@ -58,13 +58,25 @@ app.set('views', path.join(__dirname, './views'))
 
   
 
+  // app.post('/login', passport.authenticate('local', {
+  //   successRedirect: '/',
+  //   failureRedirect: '/login',
+  //   failureFlash: true
+    
+  // }));
+  
   app.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
     failureRedirect: '/login',
     failureFlash: true
-    
-  }));
-  
+  }), (req, res) => {
+    // here  If user is admin, redirect to admin dashboard
+    if (req.user.username === 'abdalleadmin@admin') {
+      res.redirect('/admin');
+    } else {
+      res.redirect('/');
+    }
+  });
+
   app.post('/register', async (req, res) => {
     const { username, password } = req.body;
     try {
@@ -135,11 +147,21 @@ app.get('/register', (req, res) =>
     {
       res.render('tutorials/howtouse', { header: { location: '/howtouse' } });
     })
-  app.get('/admin', async (req,res)=>
-    {
+  // app.get('/admin', async (req,res)=>
+  //   {
+  //     const reviews = await Reviewsmdl.find();
+  //     res.render('tutorials/admin', {reviews:reviews, header: { location: '/admin' } });
+  //   })
+
+  app.get('/admin', async (req, res) => {
+    // Check if the authenticated user is the admin
+    if (req.user && req.user.username === 'abdalleadmin@admin') {
       const reviews = await Reviewsmdl.find();
-      res.render('tutorials/admin', {reviews:reviews, header: { location: '/admin' } });
-    })
+      return res.render('tutorials/admin', { reviews: reviews, header: { location: '/admin' } });
+    }
+    // Redirect to login if not admin
+    res.redirect('/login');
+  });
 
   app.post('/review', async (req, res) => {
       const review = new Reviewsmdl({
