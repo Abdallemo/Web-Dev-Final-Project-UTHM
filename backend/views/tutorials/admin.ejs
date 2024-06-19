@@ -5,23 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/flowbite@1.6.4/dist/flowbite.min.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
 </head>
 
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
 
-    <!-- Navbar -->
-    <nav class="bg-gray-800 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <div>
-                <a href="/" class="text-white text-lg font-bold">Admin Dashboard</a>
-            </div>
-            <div>
-                <!-- Add any navbar items here -->
-            </div>
-        </div>
-    </nav>
-
+    <%- include('_nav_bar') %>
+    
     <!-- Main Content -->
     <div class="container mx-auto mt-8">
 
@@ -46,6 +39,7 @@
         </div>
 
     </div>
+    <script src="https://unpkg.com/flowbite@1.6.4/dist/flowbite.min.js"></script>
 
 </body>
 
