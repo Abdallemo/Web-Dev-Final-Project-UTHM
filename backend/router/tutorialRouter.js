@@ -25,43 +25,6 @@ router.get('/review',(req,res)=>
         res.render('tutorials/review',{header: { location: '/review' }});
     })
 
-// Multer configuration
-// const storage = multer.diskStorage({
-//     destination: (req, file, cb) => {
-//         cb(null, uploadPath);
-//     },
-//     filename: (req, file, cb) => {
-//         cb(null, Date.now() + '-' + file.originalname);
-//     }
-// });
-
-// const upload = multer({
-//     storage: storage,
-//     fileFilter: (req, file, callback) => {
-//         callback(null, imageMimeTypes.includes(file.mimetype));
-//     }
-// });
-
-// router.get('/review', (req, res) => {
-//     res.render('tutorials/review', { header: { location: '/review' } });
-// });
-
-// router.post('/review', upload.single('cover'), async (req, res) => {
-//     const fileName = req.file != null ? req.file.filename : null;
-//     const review = new Reviewsmdl({
-//         reviewEmail: req.body.email,
-//         reviewMedia: fileName,
-//         reviewmessage: req.body.message
-//     });
-//     try {
-//         const newReview = await review.save();
-//         res.redirect('/');
-//     } catch (error) {
-//         console.error(error);
-//         res.redirect('/review');
-//     }
-// });
-
 router.get('/login', (req, res) => {
     res.render('tutorials/login', { user: new User() });
 });

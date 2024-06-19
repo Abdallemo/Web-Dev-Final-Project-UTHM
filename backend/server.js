@@ -120,6 +120,11 @@ app.get('/register', (req, res) =>
       res.render('tutorials/aboutus', { header: { location: '/aboutus' } });
     })
 
+  app.get('/howtouse', (req,res)=>
+    {
+      res.render('tutorials/howtouse', { header: { location: '/howtouse' } });
+    })
+
     const storage = multer.diskStorage({
       destination: (req, file, cb) => {
           cb(null, uploadPath);
