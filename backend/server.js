@@ -9,7 +9,6 @@ const Reviewsmdl = require('./models/reviewsModel');
 const passport = require('passport');
 const session = require('express-session');
 const flash = require('express-flash');
-const multer = require('multer');
 const { ensureAuthenticated } = require('./middleware/authMiddleware');
 require('./config/passportConfig')
 const tutorialRouter = require('../backend/router/tutorialRouter')
@@ -17,6 +16,8 @@ const path = require('path')
 const imageMimeTypes = ['image/jpeg','image/png','image/gif']
 const uploadPath = path.join('backend',Reviewsmdl.coverImageBasePath);
 const e = require('express')
+const { json } = require('express/lib/response')
+const bodyParser = require('body-parser')
 
 if(process.env.NODE_ENV !== 'production'){
   
@@ -37,6 +38,10 @@ mongoose.connect(process.env.DATABASE_URL)
     app.use(express.urlencoded({extended:false}))
     app.use(methodOverride('_method'))
     app.use(flash());
+    app.use(bodyParser.json({ limit: '50mb' }));
+
+    // Increase the limit for URL-encoded payloads
+    app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
   
 
 //? All setters
@@ -98,7 +103,7 @@ app.get('/login', (req, res) =>
 
 app.get('/review', (req, res) => 
   {
-    res.render('tutorials/review',{header: { location: '/review' }});
+    res.render('tutorials/review',{review:Reviewsmdl,header: { location: '/review' }});
   });  
 
 app.get('/register', (req, res) => 
@@ -124,33 +129,19 @@ app.get('/register', (req, res) =>
     {
       res.render('tutorials/howtouse', { header: { location: '/howtouse' } });
     })
+  app.get('/admin', async (req,res)=>
+    {
+      const reviews = await Reviewsmdl.find();
+      res.render('tutorials/admin', {reviews:reviews, header: { location: '/admin' } });
+    })
 
-    const storage = multer.diskStorage({
-      destination: (req, file, cb) => {
-          cb(null, uploadPath);
-      },
-      filename: (req, file, cb) => {
-          cb(null, Date.now() + '-' + file.originalname);
-      }
-  });
-  
-  const upload = multer({
-      storage: storage,
-      fileFilter: (req, file, callback) => {
-          callback(null, imageMimeTypes.includes(file.mimetype));
-      }
-  });
-  
-  app.post('/review', upload.single('Media'), async (req, res) => {
-      // console.log('Received file:', req.file);
-      const fileName = req.file != null ? req.file.filename : null;
-      // console.log('File name to be saved in DB:', fileName);
+  app.post('/review', async (req, res) => {
       const review = new Reviewsmdl({
           reviewEmail: req.body.email,
-          reviewMedia: fileName,
           reviewmessage: req.body.message
       });
       try {
+          saveCover(review,req.body.Media);
           const newReview = await review.save();
           res.redirect('/');
       } catch (error) {
@@ -158,7 +149,22 @@ app.get('/register', (req, res) =>
           res.redirect('/review');
       }
   });
-  
+
+
+  function saveCover(review,MediaEncoded)
+  {
+    if(MediaEncoded== null) return
+    const Media = JSON.parse(MediaEncoded)
+    if(Media != null && imageMimeTypes.includes(Media.type))
+      {
+        review.reviewMedia = new Buffer.from(Media.data,'base64');
+        review.reviewMediaType = Media.type
+      }
+
+  }
+   
+
+
 
 app.use('/tutorials',tutorialRouter)
 

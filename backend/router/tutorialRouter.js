@@ -10,6 +10,7 @@ const imageMimeTypes = ['images/jpeg','images/png','images/gif']
 const uploadPath = path.join('backend',Reviewsmdl.coverImageBasePath);
 
 
+
 router.get('/new', (req, res) => {
     res.render('tutorials/new', { tutorial: new Tutorial() });
 });
@@ -22,7 +23,11 @@ router.get('/aboutus', (req, res) => {
 });
 router.get('/review',(req,res)=>
     {
-        res.render('tutorials/review',{header: { location: '/review' }});
+        res.render('tutorials/review',{review:Reviewsmdl,header: { location: '/review' }});
+    })
+router.get('/admin',(req,res)=>
+    {
+        res.render('tutorials/review',{review:Reviewsmdl,header: { location: '/review' }});
     })
 
 

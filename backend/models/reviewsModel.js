@@ -13,8 +13,12 @@ const reviewSchema = new mongoose.Schema
     },
     reviewMedia: 
     {   
-        type: String,
+        type: Buffer,
         
+    },
+    reviewMediaType: 
+    {   
+        type: String,
         
     },
     reviewmessage: 
@@ -25,7 +29,13 @@ const reviewSchema = new mongoose.Schema
     }
 
 });
-
+reviewSchema.virtual('MediaImageActual').get(function()
+{
+    if(this.reviewMedia != null && this.reviewMediaType != null)
+        {
+            return `data:${this.reviewMediaType};charset=utf-8;base64,${this.reviewMedia.toString('base64')}`
+        } 
+})
 
 module.exports= mongoose.model('Review',reviewSchema)
 module.exports.coverImageBasePath = coverImageBasePath;

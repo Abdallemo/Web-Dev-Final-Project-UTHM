@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+</head>
+<body>
+    <h1>Admin Page</h1>
+    <% reviews.forEach(function(reviews) { %>
+        <div>
+            <h2>Review from <%= reviews.reviewEmail %></h2>
+            <p><%= reviews.reviewmessage %></p>
+            <% if (reviews.reviewMedia && reviews.reviewMediaType) { %>
+                <img src="<%= reviews.MediaImageActual %>" alt="Review Image">
+            <% } else { %>
+                <p>No image uploaded</p>
+            <% } %>
+        </div>
+    <% }); %>
+</body>
+</html>
