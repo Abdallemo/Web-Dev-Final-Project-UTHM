@@ -29,17 +29,21 @@ mongoose.connect(process.env.DATABASE_URL)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
-  const jsonLimit = '50mb';  // Example limit for JSON bodies
+  // solution for "payloadTooLargeError: request entity too large nodejs express js"
+  const jsonLimit = '50mb';   
   const urlEncodedLimit = '50mb'; 
 
   app.use(bodyParser.json({limit: "50mb"}));
   app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
 
   console.log(`JSON body limit set to: ${jsonLimit}`);
-console.log(`URL-encoded body limit set to: ${urlEncodedLimit}`);
+  console.log(`URL-encoded body limit set to: ${urlEncodedLimit}`);
 
+  //*end here 
+
+  //* Middleware to log the current limits
   app.use(session({
-      secret: 'H2HSSS$HS',
+      secret: process.env.SECRET_KEY,
       resave: false,
       saveUninitialized: false
     }));
@@ -47,7 +51,7 @@ console.log(`URL-encoded body limit set to: ${urlEncodedLimit}`);
     app.use(methodOverride('_method'))
     app.use(flash());
 
-    // Middleware to log the current limits
+    
   
 
 //? All setters
@@ -56,27 +60,20 @@ app.use(passport.session());
 app.set('view engine','ejs')
 app.set('views', path.join(__dirname, './views'))
 
-  
 
-  // app.post('/login', passport.authenticate('local', {
-  //   successRedirect: '/',
-  //   failureRedirect: '/login',
-  //   failureFlash: true
-    
-  // }));
-  
   app.post('/login', passport.authenticate('local', {
     failureRedirect: '/login',
     failureFlash: true
   }), (req, res) => {
     // here  If user is admin, redirect to admin dashboard
-    if (req.user.username === 'abdalleadmin@admin') {
+    if (req.user.username === process.env.AMDIN_EMAIL) {
       res.redirect('/admin');
     } else {
       res.redirect('/');
     }
   });
 
+  //? Here the Rout for the regsitration 
   app.post('/register', async (req, res) => {
     const { username, password } = req.body;
     try {
@@ -92,11 +89,13 @@ app.set('views', path.join(__dirname, './views'))
     }
 });
 
+  //* save the current user to the local storage you can say some kind of cookies 
   app.use((req, res, next) => {
     res.locals.user = req.user || null;
     next();
   });
 
+  //! here is the main route and the skelaton of the app
 app.get('/', async (req,res)=>
     {
         let searchOptions = {}
@@ -105,11 +104,16 @@ app.get('/', async (req,res)=>
             searchOptions.title = new RegExp('^'+req.query.search, 'i')
           }
         const tutorials = await Tutorial.find(searchOptions).populate('user').sort({createdAt:'desc'})
+        // this part displayes random review
+        const reviews = await Reviewsmdl.find();
+        const randomReview = reviews[Math.floor(Math.random() * reviews.length)];
+
         res.render('tutorials/index',{
           tutorials:tutorials,
           searchOptions:req.query,
           user:req.user,
-          header: { location: '/' }
+          header: { location: '/' },
+          review: randomReview
         })
         
     })
@@ -147,11 +151,7 @@ app.get('/register', (req, res) =>
     {
       res.render('tutorials/howtouse', { header: { location: '/howtouse' } });
     })
-  // app.get('/admin', async (req,res)=>
-  //   {
-  //     const reviews = await Reviewsmdl.find();
-  //     res.render('tutorials/admin', {reviews:reviews, header: { location: '/admin' } });
-  //   })
+
 
   app.get('/admin', async (req, res) => {
     // Check if the authenticated user is the admin
@@ -178,6 +178,11 @@ app.get('/register', (req, res) =>
       }
   });
 
+/* 
+  ?This function is to save the media as a buffer instead of the path so no 
+  !Server Restarting every time user send a Media
+  ?cause we save it to the database as buffer
+*/
 
   function saveCover(review,MediaEncoded)
   {
@@ -196,7 +201,7 @@ app.get('/register', (req, res) =>
 
 app.use('/tutorials',tutorialRouter)
 
-app.listen(3000)
+app.listen(process.env.PORT)
 
 
 

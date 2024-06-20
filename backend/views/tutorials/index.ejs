@@ -7,7 +7,7 @@
     <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet"> 
     <title>Tutorial Website</title>
 </head>
-<body class="bg-gradient-to-r from-teal-400 to-blue-500 bg-gradient-blur-2xl mb-4 ">
+<body class="bg-gradient-to-r from-teal-400 to-blue-500 bg-gradient-blur-2xl">
    
         <%- include('_nav_bar') %>
         
@@ -15,12 +15,13 @@
         <div class="container mx-auto px-4 py-8 " > 
             <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white flex flex-col items-center">Tutorials Available</h1>
 
+            
             <% if (user) { %>
                 <div class="flex flex-col items-center" data-hint="Here add new Tutorial" data-title="Here is the hdeline" data-intro="Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur neque, ipsam doloribus illum nostrum accusantium maiores cumque veniam, autem consectetur odio tempore quos numquam, dignissimos est deserunt perspiciatis. Nemo, excepturi?">
                 <a href="tutorials/new" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 drop-shadow-2xl item-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 ">Add New Tutorial</a>
             <% } %></div>
 
-            <div class="flex justify-center gap-6 flex-wrap ">
+            <div class="flex justify-center gap-6 flex-wrap mb-5">
             <% tutorials.forEach(tutorials => { %>
 
             
@@ -51,7 +52,10 @@
             
                 <% }) %>
             </div>
-    </div>
+            
+            
+        </div>
+        <%- include('_footer') %>
     <script src="https://unpkg.com/flowbite@1.6.4/dist/flowbite.min.js"></script>
     <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
     <!-- <script>

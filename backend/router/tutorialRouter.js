@@ -4,13 +4,15 @@ const Tutorial = require('./../models/toturialModel');
 const User = require('./../models/userModel');
 const { ensureAuthenticated, checkTutorialOwnership } = require('../middleware/authMiddleware');
 const Reviewsmdl = require('./../models/reviewsModel');
-const multer = require('multer');
 const path = require('path')
 const imageMimeTypes = ['images/jpeg','images/png','images/gif']
 const uploadPath = path.join('backend',Reviewsmdl.coverImageBasePath);
 
 
-
+/* 
+?here all the routes for Views its not perfect but this is my level  
+                                                                    !for Now!
+*/
 router.get('/new', (req, res) => {
     res.render('tutorials/new', { tutorial: new Tutorial() });
 });
@@ -64,7 +66,10 @@ router.post('/', ensureAuthenticated, async (req, res, next) => {
   });
 
   
-
+/** 
+    * ?here the saving function to the mongodb database
+    * *     easy Right?
+*/   
 function saveArticleThenRedirect(path) {
     return async (req, res) => {
         let tutorial = req.tutorial;

@@ -1,4 +1,4 @@
-// middleware/authMiddleware.js
+// ?here the middleware/authMiddleware to insure the ownership of the user
 const Tutorial = require('./../models/toturialModel');
 
 function ensureAuthenticated(req, res, next) {
