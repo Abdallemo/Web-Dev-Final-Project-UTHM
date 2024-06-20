@@ -155,7 +155,7 @@ app.get('/register', (req, res) =>
 
   app.get('/admin', async (req, res) => {
     // Check if the authenticated user is the admin
-    if (req.user && req.user.username === 'abdalleadmin@admin') {
+    if (req.user && req.user.username === process.env.AMDIN_EMAIL) {
       const reviews = await Reviewsmdl.find();
       return res.render('tutorials/admin', { reviews: reviews, header: { location: '/admin' } });
     }
