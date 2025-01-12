@@ -13,7 +13,7 @@ const uploadPath = path.join('backend',Reviewsmdl.coverImageBasePath);
 ?here all the routes for Views its not perfect but this is my level  
                                                                     !for Now!
 */
-router.get('/new', (req, res) => {
+router.get('/new', ensureAuthenticated,(req, res) => {
     res.render('tutorials/new', { tutorial: new Tutorial() });
 });
 
