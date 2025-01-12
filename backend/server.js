@@ -98,23 +98,39 @@ app.set('views', path.join(__dirname, './views'))
   //! here is the main route and the skelaton of the app
 app.get('/', async (req,res)=>
     {
-        let searchOptions = {}
-        if(req.query.search != null && req.query.search !== '')
-          {
-            searchOptions.title = new RegExp('^'+req.query.search, 'i')
-          }
-        const tutorials = await Tutorial.find(searchOptions).populate('user').sort({createdAt:'desc'})
-        // this part displayes random review
+       let searchOptions = {};
+    if (req.query.search != null && req.query.search !== '') {
+        searchOptions.title = new RegExp('^' + req.query.search, 'i');
+    }
+
+    const page = parseInt(req.query.page) || 1; // Current page number
+    const limit = 5; // Number of tutorials per page
+    const skip = (page - 1) * limit;
+
+    try {
+        const count = await Tutorial.countDocuments(searchOptions); // Total number of tutorials
+        const tutorials = await Tutorial.find(searchOptions)
+            .populate('user')
+            .sort({ createdAt: 'desc' })
+            .skip(skip)
+            .limit(limit);
+
         const reviews = await Reviewsmdl.find();
         const randomReview = reviews[Math.floor(Math.random() * reviews.length)];
 
-        res.render('tutorials/index',{
-          tutorials:tutorials,
-          searchOptions:req.query,
-          user:req.user,
-          header: { location: '/' },
-          review: randomReview
-        })
+        res.render('tutorials/index', {
+            tutorials,
+            searchOptions: req.query,
+            user: req.user,
+            header: { location: '/' },
+            review: randomReview,
+            currentPage: page,
+            totalPages: Math.ceil(count / limit), // Total pages
+        });
+    } catch (error) {
+        console.error(error);
+        res.redirect('/');
+    }
         
     })
 
