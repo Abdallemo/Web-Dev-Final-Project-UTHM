@@ -138,7 +138,9 @@ app.get('/login', (req, res) =>
   {
         res.render('tutorials/login');
   });
-
+  app.use((req, res, next) => {
+    res.status(404).render("tutorials/404");  
+  });
 app.get('/review', (req, res) => 
   {
     res.render('tutorials/review',{review:Reviewsmdl,header: { location: '/review' }});
